@@ -127,4 +127,6 @@ int main() {
 	cout << "Monthly Bonus: $" << profile.getMonth() << endl;
 	cout << "Required Hours: " << profile.getTraining() << endl;
 	cout << "Attendance: " << profile.getAttendance() << endl;
+	
+	return 0;
 }

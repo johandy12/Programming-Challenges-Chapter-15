@@ -47,42 +47,59 @@ class Employee {
 		}
 };
 
-class ShiftSupervisor : public Employee {
-	double salary;
-	double bonus;
+class ProductionWorker : public Employee{
+	private:
+		double shift;
+		double payRate;
 	
-	public:
-		ShiftSupervisor(string name, string number, string date) : Employee (name, number, date) {
+	public:	
+		ProductionWorker() {
+			shift = 0;
+			payRate = 0;
 		}
 		
-		void setSalary(double salary) {
-			this -> salary = salary;
+		ProductionWorker(double shift, double payRate) {
+			this -> shift = shift;
+			this -> payRate = payRate;
 		}
 		
-		void setBonus(double bonus) {
-			this -> bonus = bonus;
+		void setShift() {
+			if(shift == 1){
+				cout << "Day Shift";
+			}
+			
+			else if(shift == 2) {
+				cout << "Night Shift";
+			}
 		}
 		
-		double getSalary() {
-			return salary;
+		int setPayRate() {
+			this -> payRate = payRate;
 		}
 		
-		double getBonus() {
-			return bonus;
+		double getPayRate() {
+			return payRate;
 		}
 };
 
 
 int main(){
-	TotalNumber Worker(200);
+	ProductionWorker Worker(200);
 	
 	Worker.setName("Johandy");
 	cout << Worker.getName() << endl;
+	
 	Worker.setNumber("123123");
 	cout << Worker.getNumber() << endl;
+
 	Worker.setDate("12/10/1998");
 	cout << Worker.getDate() << endl;
-	Worker.getShift();
+	
+	Worker.setShift(1);
 	cout << endl;
-	cout << Worker.getTotal() << " workers";
+	
+	Worker.setpayRate();
+	cout << "Pay Rate: " << Worker.getPayRate();
+	
+	return 0;
 }

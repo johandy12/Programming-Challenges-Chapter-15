@@ -52,7 +52,8 @@ class ShiftSupervisor : public Employee {
 	double bonus;
 	
 	public:
-		ShiftSupervisor(float salary, int bonus){
+		
+		ShiftSupervisor(double salary, double bonus){
 			this->salary = salary;
 			this->bonus = bonus;
 		}
@@ -74,12 +75,30 @@ class ShiftSupervisor : public Employee {
 		}
 };
 
+class TotalNumber : public ShiftSupervisor {
+	double total;
+	
+	public:
+		TotalNumber(double total) {
+			this -> total = total;
+		}
+		
+		void setTotal(double total) {
+			this -> total = total;
+		}
+		
+		double getTotal() {
+			return total;
+		}
+};
 
 int main(){
-	ShiftSupervisor profile("Johandy", "123123", "12/10/1998");
+	TotalNumber profile ("Johandy", "123123");
 	
-	cout << "Name: " << profile.getName() << endl << "Number: " <<profile.getNumber() 
-	<< endl << "Hire Date: " << profile.getDate();
+	cout << "Name: " << profile.getName() << endl << "Number: " << profile.getNumber() << endl;
+	
+	profile.setDate("12/10/1998");
+	cout << "Hire Date: " << profile.setDate() << endl;
 	
 	profile.setSalary(150);
 	cout << endl << "Salary: " << profile.getSalary() << endl;
@@ -87,5 +106,7 @@ int main(){
 	profile.setBonus(20);
 	cout << "Bonus: " << profile.getBonus();
 	
+	profile.setTotal(170);
+	cout << "Total: " << profile.getTotal();
 	return 0;
 }
